@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.form-container {
+  margin: 0 auto;
+  width: 600px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px; /* Adjust margin to your preference */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+textarea { /* Apply styles to both input and textarea */
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-top: 5px; /* Add some spacing between input and label */
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  margin-right: 0px;
+  display: inline-flex;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-right: 0;
+}
+
+.checkbox-label .checkbox {
+  vertical-align: middle;
+}
+
+
+
+.form-group textarea.center-text {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-top: 5px;
+  resize: vertical;
+  vertical-align: middle;
+}
+
+.form-group textarea.center-text:focus ~ label,
+.form-group textarea.center-text:not(:placeholder-shown) ~ label {
+  top: -8px;
+  font-size: 12px;
+  color: #0e1216;
+}
+
+.sticky-button {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+}
+
+.sticky-button a {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex; /* Use flex display to align items horizontally */
+  flex-direction: column; /* Align items in a column */
+  align-items: center; /* Center items horizontally */
+  margin: 5px;
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+  border-radius: 50px;
+  transition: background-color 0.2s ease-out;
+}
+
+.sticky-button a span {
+  position: relative;
+  top: -10px; /* Adjust the positioning as needed */
+}
+
+.sticky-button a:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+
+.sticky-button a:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+
+.sticky-button a:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.submit-button {
+  text-align: center; /* Center-align the button */
+  margin-top: 20px; /* Add margin for spacing */
+}
+
+.submit-button button {
+  padding: 10px 20px; /* Add padding around the button */
+  font-size: 16px;
+  background-color: #627d7c; /* Primary button color */
+  color: #fff; /* Text color */
+  border: none; /* Remove button border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Show pointer cursor on hover */
+  transition: background-color 0.2s ease-out; /* Smooth transition on hover */
+}
+
+.submit-button button:hover {
+  background-color: #090a0b; /* Darker color on hover */
+}
+
+
