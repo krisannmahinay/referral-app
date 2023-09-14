@@ -1,35 +1,67 @@
+/* styles.css */
+
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  align-items: flex-end;
+  
+  
 }
 
-.form-container {
+
+/* Style for the button container */
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+  align-self: flex-start;
+  flex: 1;
+}
+
+#showFormButton {
+  padding: 10px 20px;
+  background-color: #191D88;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 200px;
+}
+
+
+/* Style for the referral form container */
+#referralFormContainer {
+  display: none;
+  max-width: 600px;
   margin: 0 auto;
-  width: 600px;
+  background-color: #fff;
   padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Style for form elements */
 .form-group {
-  margin-bottom: 15px; /* Adjust margin to your preference */
+  margin-bottom: 15px;
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
 input,
-textarea { /* Apply styles to both input and textarea */
+textarea {
   width: 100%;
   padding: 10px;
   outline: none;
-  border: 1px solid #ccc;
+  border: #ccc solid 1px;
   font-size: 15px;
   border-radius: 5px;
-  margin-top: 5px; /* Add some spacing between input and label */
+  margin-top: 5px;
 }
 
 .checkbox-group {
@@ -41,99 +73,114 @@ textarea { /* Apply styles to both input and textarea */
 .checkbox-label {
   display: flex;
   align-items: center;
-  margin-right: 0px;
+  margin-right: 0;
   display: inline-flex;
 }
 
-.checkbox-label input[type="checkbox"] {
-  margin-right: 0;
-}
+/* ... (other styles) ... */
 
-.checkbox-label .checkbox {
-  vertical-align: middle;
-}
-
-
-
-.form-group textarea.center-text {
-  width: 100%;
-  padding: 10px;
-  outline: none;
-  border: 1px solid #ccc;
-  font-size: 15px;
-  border-radius: 5px;
-  margin-top: 5px;
-  resize: vertical;
-  vertical-align: middle;
-}
-
-.form-group textarea.center-text:focus ~ label,
-.form-group textarea.center-text:not(:placeholder-shown) ~ label {
-  top: -8px;
-  font-size: 12px;
-  color: #0e1216;
-}
-
-.sticky-button {
+.sticky-button-container {
   position: fixed;
-  top: 100px;
-  right: 20px;
+  top: 50%;
+  right: 20px; /* Adjust the right distance as needed */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 9999;
 }
 
-.sticky-button a {
+.sticky-button-container a {
+  /* Existing styles */
   color: #fff;
-  background: rgba(0, 0, 0, 0.4);
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 18;
   text-decoration: none;
-  display: flex; /* Use flex display to align items horizontally */
-  flex-direction: column; /* Align items in a column */
-  align-items: center; /* Center items horizontally */
-  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   padding: 10px;
-  width: 100px;
+  margin: 5px;
   text-align: center;
-  border-radius: 50px;
-  transition: background-color 0.2s ease-out;
-}
-
-.sticky-button a span {
+  line-height: 1;
+  border-radius: 10px;
+  background-color: #191D88;
+  transition: transform 0.2s ease-out, padding-left 0.2s ease-out;
   position: relative;
-  top: -10px; /* Adjust the positioning as needed */
+  overflow: hidden;
 }
 
-.sticky-button a:hover {
-  background: rgba(0, 0, 0, 0.6);
+.sticky-button-container a i {
+  /* Existing styles */
+  font-size: 20px;
+  height: 30px;
+  margin-right: 10px;
+  transition: transform 0.2s ease-out;
+  transform: translateX(0);
+}
+
+.sticky-button-container a span {
+  /* Existing styles */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out, left 0.2s ease-out;
+  position: absolute;
+  top: 100%;
+  left: calc(100% + 10px);
+  background-color: rgba(25, 29, 136, 0.9);
+  padding: 10px 10px;
+  border-radius: 50px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.sticky-button-container a:hover {
+  /* Move the background to the left on hover */
+  padding-left: 100px; /* Adjust the value as needed */
+}
+
+.sticky-button-container a:hover i {
+  /* Move the icon to the left on hover */
+  transform: translateX(-10px);
+}
+
+.sticky-button-container a:hover span {
+  /* Show text on hover */
+  opacity: 1;
+  transform: translateY(-100%) translateX(0);
+  left: 0;
 }
 
 
-.sticky-button a:hover {
-  background: rgba(0, 0, 0, 0.6);
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-
-.sticky-button a:hover {
-  background: rgba(0, 0, 0, 0.6);
+.sticky-button-container a[data-share="facebook"] i {
+  color: #6dbff3;
 }
 
-.submit-button {
-  text-align: center; /* Center-align the button */
-  margin-top: 20px; /* Add margin for spacing */
+.sticky-button-container a[data-share="message"] i {
+  /* Update the style */
+  color: transparent;
 }
 
-.submit-button button {
-  padding: 10px 20px; /* Add padding around the button */
-  font-size: 16px;
-  background-color: #627d7c; /* Primary button color */
-  color: #fff; /* Text color */
-  border: none; /* Remove button border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Show pointer cursor on hover */
-  transition: background-color 0.2s ease-out; /* Smooth transition on hover */
+.sticky-button-container a[data-share="instagram"] i {
+  /* Update the style */
+  color: transparent;
+  background-image: linear-gradient(45deg, #FFDF9E, #E56969, #8A49A1);
+  -webkit-background-clip: text;
+  font-weight: 600;
 }
 
-.submit-button button:hover {
-  background-color: #090a0b; /* Darker color on hover */
+.sticky-button-container a[data-share="twitter"] i {
+  color: rgb(61, 110, 247);
 }
-
 

@@ -1,88 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Referral Form</title>
+  <title>Referral App</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
 </head>
 <body>
+  <div class="button-container"></div>
+  <button id="showFormButton">Show Referral Form</button>
 
-  <div class="form-container">
+ <!-- Referral Form Container (initially hidden) -->
+<div id="referralFormContainer" style="display: none;">
+  <div id="referralForm">
     <h1>Referral Form</h1>
-    <form>
-      <div class="form-group">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" required autofocus>
-      </div>
-      <div class="form-group">
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" required>
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" required>
-      </div>
-      
-      <!-- This is check boxes -->
-      <div class="checkbox-group">
-        <h2>Services:</h2>
-        <div class="check">
-          <input type="checkbox" name="service1" id="checkbox1">
-          <label class="checkbox" for="checkbox1">Service 1</label>
-        </div>
-        <div class="check">
-          <input type="checkbox" name="service2" id="checkbox2">
-          <label class="checkbox" for="checkbox2">Service 2</label>
-        </div>
-        <div class="check">
-          <input type="checkbox" name="service3" id="checkbox3">
-          <label class="checkbox" for="checkbox3">Service 3</label>
-        </div>
-      </div>
+  <form method="post" action="process_form.php">
+          <div class="form-group">
+              <label for="first_name">First Name:</label>
+              <input type="text" id="firstName" name="first_name" required autofocus>
+          </div>
+          <div class="form-group">
+              <label for="last_name">Last Name:</label>
+              <input type="text" id="lastName" name="last_name" required>
+          </div>
+          <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+              <label for="phone">Phone Number:</label>
+              <input type="tel" id="phone" name="phone_number" required>
+          </div>
+          <!-- Other form fields here -->
 
-      
+          <!-- This is check boxes -->
+          <div class="checkbox-group">
+              <h2>Services:</h2>
+              <div class="check">
+                  <input type="checkbox" name="service1">
+                  <label class="checkbox" for="checkbox1">Service 1</label>
+              </div>
+              <div class="check">
+                  <input type="checkbox" name="service2">
+                  <label class="checkbox" for="checkbox2">Service 2</label>
+              </div>
+              <div class="check">
+                  <input type="checkbox" name="service3">
+                  <label class="checkbox" for="checkbox3">Service 3</label>
+              </div>
+          </div>
 
-        <div class="form-group">
-          <label for="message">Leave us a message:</label>
-          <textarea id="message" rows="4" cols="50"></textarea>
-        </div>
-
-
+          <div class="form-group">
+              <label for="message">Leave us a message:</label>
+              <textarea name="message" rows="4" cols="50"></textarea>
+          </div>
 
           <div class="submit-button">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+      </form>
   </div>
+</div>
 
-  <div class="sticky-button">
-    <a href="#" onclick="shareViaSMS()">
-      <i class="far fa-comments-o"></i>
-      SMS
-    </a>
-
-    <a href="#" onclick="shareOnFacebook()">
+  <div class="sticky-button-container">
+    <a  href="#" data-share="facebook">
       <i class="fab fa-facebook"></i>
-      Facebook
+      <span>Facebook</span>
     </a>
-
-    <a href="#" onclick="shareOnInstagram()">
+  
+    <a href="#" data-share="sms">
+      <i class="fas fa-sms"></i>
+      <span>Message</span>
+    </a>
+       
+    
+    <a href="#" data-share="instagram">
       <i class="fab fa-instagram"></i>
-      Instagram
+      <span>Instagram</span>
     </a>
-
-    <a href="#" onclick="shareOnTwitter()">
+    
+    <a href="#" data-share="twitter">
       <i class="fab fa-twitter"></i>
-      Twitter
+      <span>Twitter</span>
     </a>
   </div>
-
+  
+   <!-- Include your script.js file here -->
   <script src="script.js"></script>
 </body>
 </html>
